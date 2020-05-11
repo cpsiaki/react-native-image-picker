@@ -455,6 +455,12 @@ RCT_EXPORT_METHOD(showImagePicker:(NSDictionary *)options callback:(RCTResponseS
                 if (pickedAsset.creationDate) {
                     self.response[@"timestamp"] = [[ImagePickerManager ISO8601DateFormatter] stringFromDate:pickedAsset.creationDate];
                 }
+                if (pickedAsset.modificationDate) {
+                    self.response[@"modificationTimestamp"] = [[ImagePickerManager ISO8601DateFormatter] stringFromDate:pickedAsset.modificationDate];
+                }
+                if (pickedAsset.duration) {
+                    self.response[@"duration"] = [NSNumber numberWithDouble: pickedAsset.duration];
+                }
             }
 
             if ([videoURL.URLByResolvingSymlinksInPath.path isEqualToString:videoDestinationURL.URLByResolvingSymlinksInPath.path] == NO) {
