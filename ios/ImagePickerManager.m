@@ -595,7 +595,7 @@ videoDestinationURL:(NSURL*)videoDestinationURL
                                      handler:(void (^)(AVAssetExportSession*))handler {
     [[NSFileManager defaultManager] removeItemAtURL:outputURL error:nil];
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:inputURL options:nil];
-    AVAssetExportSession *exportSession = [[AVAssetExportSession alloc] initWithAsset:asset presetName:AVAssetExportPresetMediumQuality];
+    AVAssetExportSession *exportSession = [[AVAssetExportSession alloc] initWithAsset:asset presetName:AVAssetExportPresetHighestQuality];
 
     exportSession.outputURL = outputURL;
     exportSession.outputFileType = AVFileTypeMPEG4;
